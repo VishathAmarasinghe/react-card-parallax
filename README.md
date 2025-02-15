@@ -21,3 +21,11 @@ To install the package, you can use either `npm` or `yarn`:
 ### Using npm:
 ```bash
 npm install react-card-parallax
+
+### Using yarn:
+
+```bash
+yarn add react-card-parallax
+
+
+
