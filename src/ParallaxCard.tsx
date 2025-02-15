@@ -8,18 +8,29 @@ interface ParallaxCardProps {
   scrollYProgress?: MotionValue<number>;
   containerStyle?: CSSProperties;
   cardStyle?: CSSProperties;
+  rangeMultiplier?: number;
+  scaleMultiplier?: number;
 }
 
-const ParallaxCard = ({ children, color = "#CDDDE4", cardIndex = 0, scrollYProgress, containerStyle: customContainerStyle = {}, cardStyle: customCardStyle = {} }: ParallaxCardProps) => {
+const ParallaxCard = ({
+  children,
+  color = "#CDDDE4",
+  cardIndex = 0,
+  scrollYProgress,
+  containerStyle: customContainerStyle = {},
+  cardStyle: customCardStyle = {},
+  rangeMultiplier = 0.25,
+  scaleMultiplier = 0.05,
+}: ParallaxCardProps) => {
   const container = useRef<HTMLDivElement>(null);
 
   if (!scrollYProgress) return null; // Prevents rendering issues
 
   // Compute range dynamically
-  const range: [number, number] = [cardIndex * 0.25, 1]; // Adjust this value as needed
+  const range: [number, number] = [cardIndex * rangeMultiplier, 1]; // Adjust this value as needed
 
   // Compute targetScale dynamically
-  const targetScale = 1 - (cardIndex * 0.05); // Example: Reduce scale for each card
+  const targetScale = 1 - cardIndex * scaleMultiplier; // Reduce scale for each card
 
   // Apply scale transformation
   const scale = useTransform(scrollYProgress, range, [1, targetScale]);
@@ -50,8 +61,10 @@ const ParallaxCard = ({ children, color = "#CDDDE4", cardIndex = 0, scrollYProgr
   };
 
   return (
-    <div ref={container} style={{...containerStyle, ...customContainerStyle}}>
-      <motion.div style={{...cardStyle, ...customCardStyle}}>{children}</motion.div>
+    <div ref={container} style={{ ...containerStyle, ...customContainerStyle }}>
+      <motion.div style={{ ...cardStyle, ...customCardStyle }}>
+        {children}
+      </motion.div>
     </div>
   );
 };

@@ -19,5 +19,23 @@
     "@types/react": "^19.0.8",
     "typescript": "^5.7.3",
     "vite": "^6.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VishathAmarasinghe/react-card-parallax.git"
+  },
+  "homepage": "https://github.com/VishathAmarasinghe/react-card-parallax#readme",
+  "bugs": {
+    "url": "https://github.com/VishathAmarasinghe/react-card-parallax/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "parallax",
+    "react",
+    "card",
+    "animation",
+    "scroll"
+  ]
 }

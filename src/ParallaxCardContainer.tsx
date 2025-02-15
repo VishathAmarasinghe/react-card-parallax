@@ -9,10 +9,13 @@ interface ParallaxCardContainerProps {
 }
 
 const containerStyles: React.CSSProperties = {
-  position: "relative"
+  position: "relative",
 };
 
-const ParallaxCardContainer = ({ children,style = {} }: ParallaxCardContainerProps) => {
+const ParallaxCardContainer = ({
+  children,
+  style = {},
+}: ParallaxCardContainerProps) => {
   const container = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -33,7 +36,10 @@ const ParallaxCardContainer = ({ children,style = {} }: ParallaxCardContainerPro
     <main ref={container} style={{ ...containerStyles, ...style }}>
       {/* Automatically pass scrollYProgress and cardIndex to children */}
       {React.Children.map(children, (child, index) => {
-        if (React.isValidElement(child) && (child.type as any).displayName === "ParallaxCard") {
+        if (
+          React.isValidElement(child) &&
+          (child.type as any).displayName === "ParallaxCard"
+        ) {
           return React.cloneElement(child as ReactElement<any>, {
             scrollYProgress,
             cardIndex: index,
