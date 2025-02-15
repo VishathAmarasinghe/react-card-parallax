@@ -1,0 +1,23 @@
+{
+  "name": "react-card-parallax",
+  "version": "1.0.0",
+  "description": "Card Parallax animation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Vishath Amarasinghe",
+  "license": "MIT",
+  "dependencies": {
+    "framer-motion": "^12.4.2",
+    "react": "^19.0.0",
+    "@studio-freight/lenis": "^1.0.27"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.8",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  }
+}
