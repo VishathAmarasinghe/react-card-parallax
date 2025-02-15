@@ -2,6 +2,9 @@
 # react-card-parallax
 React card parallax animation.
 
+## Example
+![Example Gif](https://github.com/VishathAmarasinghe/react-card-parallax/blob/main/react-card-scroll-parallex_example.gif)
+
 ## Parallax Card Package
 
   
